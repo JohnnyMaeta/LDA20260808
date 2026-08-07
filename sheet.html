@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学修デザインシート（白紙・印刷用）</title>
+<meta name="description" content="学修デザインシートの白紙版。A4横で印刷して使えます。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 4'%3E%3Crect width='2' height='2' x='0' y='0' fill='%23007bbb'/%3E%3Crect width='2' height='2' x='2' y='0' fill='%23884898'/%3E%3Crect width='2' height='2' x='4' y='0' fill='%23ffffff'/%3E%3Crect width='2' height='2' x='6' y='0' fill='%23d7003a'/%3E%3Crect width='2' height='2' x='0' y='2' fill='%23a0d8ef'/%3E%3Crect width='2' height='2' x='2' y='2' fill='%2398d98e'/%3E%3Crect width='2' height='2' x='4' y='2' fill='%23ffea00'/%3E%3Crect width='2' height='2' x='6' y='2' fill='%23f8b500'/%3E%3C/svg%3E">
+<style>
+:root{
+  --c0:#ffffff; --c1:#d7003a; --c2:#f8b500; --c3:#ffea00;
+  --c4:#98d98e; --c5:#a0d8ef; --c6:#007bbb; --c7:#884898;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:#efece6; color:#1d2024;
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.7;
+}
+.bar{background:#fff; border-bottom:1px solid #ddd8cf; padding:14px 20px;
+  display:flex; gap:14px; align-items:center; flex-wrap:wrap; font-size:14px}
+.bar a{color:#007bbb; text-decoration:none}
+.bar button{background:#007bbb; color:#fff; border:0; border-radius:9px; padding:9px 20px;
+  font-size:14px; font-weight:700; cursor:pointer; font-family:inherit}
+.bar span{color:#666; font-size:13px}
+
+.page{
+  width:297mm; min-height:210mm; margin:22px auto; background:#fff; padding:9mm;
+  box-shadow:0 6px 28px rgba(0,0,0,.12); display:flex; flex-direction:column;
+}
+.head{display:flex; align-items:flex-end; gap:12px; border-bottom:2px solid #1d2024; padding-bottom:4px; margin-bottom:5mm}
+.head .ttl{font-size:15px; font-weight:800; letter-spacing:.06em; white-space:nowrap}
+.head .fields{display:flex; gap:14px; flex:1; font-size:10.5px; color:#555}
+.head .f{display:flex; align-items:flex-end; gap:5px; flex:1}
+.head .f b{font-weight:600; white-space:nowrap}
+.head .f i{flex:1; border-bottom:1px dotted #999; height:1.4em}
+
+.grid{display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:1fr 1fr; gap:3.5mm; flex:1}
+.cell{border:1px solid #b8b3ab; border-radius:2.5mm; display:flex; flex-direction:column; overflow:hidden; background:#fff}
+.cell .hd{display:flex; align-items:baseline; gap:2.5mm; padding:1.6mm 3mm}
+.cell .n{font-size:14px; font-weight:800; line-height:1.2}
+.cell .t{font-size:14px; font-weight:800; letter-spacing:.1em}
+.cell .en{font-size:9px; font-weight:600; opacity:.75; letter-spacing:.04em; margin-left:auto}
+.cell .body{flex:1; padding:2mm 3mm 3mm}
+.cell .hint{font-size:9px; line-height:1.55; color:#7c7c7c}
+.dark .n,.dark .t,.dark .en{color:#20242a}
+.light .n,.light .t,.light .en{color:#fff}
+.cell.zero .hd{border-bottom:1px solid #d5d0c8}
+
+.foot{display:flex; justify-content:space-between; gap:10px; font-size:9px; color:#7c7c7c; margin-top:2.5mm}
+
+@media print{
+  @page{ size:A4 landscape; margin:0 }
+  body{background:#fff}
+  .bar{display:none}
+  .page{width:auto; min-height:auto; height:210mm; margin:0; box-shadow:none; padding:8mm}
+  .cell .hd{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+}
+@media (max-width:1180px){
+  .page{width:auto; max-width:100%; min-height:auto}
+  .grid{grid-template-columns:repeat(2,1fr); grid-template-rows:auto}
+  .cell{min-height:36mm}
+  .head{flex-wrap:wrap}
+  .foot{flex-direction:column; gap:3px}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <button onclick="window.print()">この用紙を印刷する</button>
+  <span>A4・横向き・「背景のグラフィック」を印刷する設定でどうぞ</span>
+  <a href="index.html">← 資料サイトへ戻る</a>
+</div>
+
+<div class="page">
+  <div class="head">
+    <div class="ttl">学修デザインシート</div>
+    <div class="fields">
+      <div class="f"><b>単元・題材</b><i></i></div>
+      <div class="f"><b>教科／学年</b><i></i></div>
+      <div class="f"><b>時間</b><i></i></div>
+      <div class="f"><b>作成者</b><i></i></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="cell light">
+      <div class="hd" style="background:var(--c6)"><span class="n">6</span><span class="t">継続</span></div>
+      <div class="body"><div class="hint">授業のあとに続くこと。宿題・次時への接続。欲張らず1〜2個だけ。</div></div>
+    </div>
+    <div class="cell light">
+      <div class="hd" style="background:var(--c7)"><span class="n">7</span><span class="t">応用</span></div>
+      <div class="body"><div class="hint">達成感を与える閉じのセレモニー。応用問題ではありません。ひとつだけ。</div></div>
+    </div>
+    <div class="cell dark zero">
+      <div class="hd" style="background:var(--c0)"><span class="n">0</span><span class="t">準備</span></div>
+      <div class="body"><div class="hint">教師が事前に持っている条件。ゴール・対象・時間・前提・持ち物。</div></div>
+    </div>
+    <div class="cell light">
+      <div class="hd" style="background:var(--c1)"><span class="n">1</span><span class="t">期待</span></div>
+      <div class="body"><div class="hint">始まる前につくる「やってみたい」。予告・掲示・机の配置・入口の実物。</div></div>
+    </div>
+
+    <div class="cell dark">
+      <div class="hd" style="background:var(--c5)"><span class="n">5</span><span class="t">確認</span></div>
+      <div class="body"><div class="hint">学びを振り返り、意味づける。個人→グループ→全体の順で。</div></div>
+    </div>
+    <div class="cell dark">
+      <div class="hd" style="background:var(--c4)"><span class="n">4</span><span class="t">反応</span><span class="en">Output</span></div>
+      <div class="body"><div class="hint">学んだことを実際に使う。機会は3つ以上。</div></div>
+    </div>
+    <div class="cell dark">
+      <div class="hd" style="background:var(--c3)"><span class="n">3</span><span class="t">感知</span><span class="en">Input</span></div>
+      <div class="body"><div class="hint">情報を受け取る。視覚・聴覚・体感覚から2つ以上。</div></div>
+    </div>
+    <div class="cell dark">
+      <div class="hd" style="background:var(--c2)"><span class="n">2</span><span class="t">解放</span></div>
+      <div class="body"><div class="hint">安心・安全をつくり、全体像を示す。体をほぐし、今日の流れを見せる。</div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>0 準備 → 1 期待 →（右の辺を下りる）→ 2 解放 → 3 感知 → 4 反応 → 5 確認 →（左の辺を上る）→ 6 継続 → 7 応用 → 0 へ戻る　＝ 時計回りに一周</span>
+    <span>©学修デザイナー協会 フレームワーク準拠</span>
+  </div>
+</div>
+
+</body>
+</html>

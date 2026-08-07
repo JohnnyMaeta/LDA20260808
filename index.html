@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学修デザインシート ワークショップ資料｜令和8年度 学修デザイン研究会 全国大会</title>
+<meta name="description" content="2026年8月8日（土）学修デザイン研究会 全国大会 午後ワークショップの資料サイト。学修デザインシートの8マスの読み方と、シート作成ツールのコピー・セットアップ手順。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 4'%3E%3Crect width='2' height='2' x='0' y='0' fill='%23007bbb'/%3E%3Crect width='2' height='2' x='2' y='0' fill='%23884898'/%3E%3Crect width='2' height='2' x='4' y='0' fill='%23ffffff'/%3E%3Crect width='2' height='2' x='6' y='0' fill='%23d7003a'/%3E%3Crect width='2' height='2' x='0' y='2' fill='%23a0d8ef'/%3E%3Crect width='2' height='2' x='2' y='2' fill='%2398d98e'/%3E%3Crect width='2' height='2' x='4' y='2' fill='%23ffea00'/%3E%3Crect width='2' height='2' x='6' y='2' fill='%23f8b500'/%3E%3C/svg%3E">
+<style>
+:root{
+  --c0:#ffffff; --c1:#d7003a; --c2:#f8b500; --c3:#ffea00;
+  --c4:#98d98e; --c5:#a0d8ef; --c6:#007bbb; --c7:#884898;
+  --bg:#faf7f2; --card:#ffffff; --ink:#1d2024; --sub:#5c6470;
+  --line:#e3ddd3; --accent:#007bbb; --shadow:0 1px 3px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#15171a; --card:#1e2126; --ink:#e9ecef; --sub:#a5adb8;
+         --line:#2f343b; --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3); }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:64px}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.85; font-size:16px; letter-spacing:.02em;
+  -webkit-text-size-adjust:100%;
+}
+img,svg{max-width:100%}
+a{color:var(--accent)}
+.wrap{max-width:860px; margin:0 auto; padding:0 20px}
+
+/* ---------- nav ---------- */
+nav{position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+nav .wrap{display:flex; gap:6px; overflow-x:auto; padding-top:8px; padding-bottom:8px; scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{white-space:nowrap; font-size:13px; text-decoration:none; color:var(--sub);
+  padding:5px 11px; border-radius:999px; border:1px solid transparent}
+nav a:hover{color:var(--ink); border-color:var(--line); background:var(--card)}
+
+/* ---------- hero ---------- */
+header{padding:44px 0 32px; border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12.5px; letter-spacing:.14em; color:var(--sub); margin:0 0 14px}
+h1{font-size:clamp(25px,5.6vw,40px); line-height:1.35; margin:0 0 16px; letter-spacing:.01em}
+h1 .thin{display:block; font-size:.55em; color:var(--sub); font-weight:600; margin-top:10px; letter-spacing:.05em}
+.meta{display:flex; flex-wrap:wrap; gap:8px 10px; margin:20px 0 0; padding:0; list-style:none}
+.meta li{font-size:13.5px; color:var(--sub); background:var(--card); border:1px solid var(--line);
+  border-radius:8px; padding:5px 11px}
+.rainbow{display:flex; height:6px; border-radius:3px; overflow:hidden; margin:26px 0 0}
+.rainbow i{flex:1}
+
+/* ---------- sections ---------- */
+section{padding:52px 0; border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+h2{font-size:clamp(20px,3.6vw,26px); margin:0 0 6px; letter-spacing:.02em; display:flex; align-items:center; gap:11px}
+h2::before{content:""; width:5px; height:1.05em; background:var(--accent); border-radius:3px; flex:none}
+.lead{color:var(--sub); margin:0 0 26px; font-size:15px}
+h3{font-size:17px; margin:34px 0 10px}
+p{margin:0 0 15px}
+
+/* ---------- CTA ---------- */
+.cta{background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:26px; box-shadow:var(--shadow); display:grid; gap:22px; grid-template-columns:1fr auto; align-items:center}
+@media (max-width:640px){ .cta{grid-template-columns:1fr; text-align:center} }
+.cta h3{margin:0 0 8px; font-size:19px}
+.cta p{font-size:14px; color:var(--sub); margin:0 0 16px}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  background:var(--c6); color:#fff; text-decoration:none; font-weight:700; font-size:16px;
+  padding:14px 26px; border-radius:11px; letter-spacing:.04em; transition:.15s}
+.btn:hover{filter:brightness(1.1); transform:translateY(-1px)}
+.btn.ghost{background:transparent; color:var(--accent); border:1.5px solid var(--accent); font-size:14px; padding:11px 20px}
+.url{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; color:var(--sub); margin-top:12px; word-break:break-all}
+.qr{background:#fff; padding:10px; border-radius:12px; width:132px; height:132px; margin:0 auto; box-shadow:var(--shadow)}
+.qr svg{display:block; width:100%; height:100%; shape-rendering:crispEdges}
+.qrcap{font-size:11.5px; color:var(--sub); text-align:center; margin:7px 0 0}
+
+/* ---------- callout ---------- */
+.note{border-left:4px solid var(--c2); background:var(--card); border-radius:0 11px 11px 0;
+  padding:15px 18px; margin:20px 0; font-size:14.5px}
+.note.warn{border-left-color:var(--c1)}
+.note strong{display:block; margin-bottom:4px}
+.note p:last-child{margin-bottom:0}
+
+/* ---------- 8マス ---------- */
+.sheet{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:8px 0 18px}
+.cell{border-radius:11px; padding:14px 11px; min-height:104px; display:flex; flex-direction:column;
+  border:1px solid rgba(0,0,0,.1); text-decoration:none; color:inherit}
+.cell .n{font-size:11px; font-weight:800; opacity:.62; letter-spacing:.1em}
+.cell .t{font-size:17px; font-weight:800; margin:2px 0 6px; letter-spacing:.04em}
+.cell .d{font-size:11.5px; line-height:1.6; opacity:.82}
+.dark-txt{color:#20242a} .light-txt{color:#fff}
+@media (max-width:560px){
+  .sheet{grid-template-columns:repeat(2,1fr)}
+  .cell{min-height:92px}
+}
+.cycle{display:flex; align-items:center; justify-content:center; gap:9px; font-size:13px;
+  color:var(--sub); margin:0 0 18px; flex-wrap:wrap}
+.cycle b{color:var(--ink)}
+
+/* ---------- 各マス詳細 ---------- */
+.mass{display:grid; grid-template-columns:auto 1fr; gap:14px; padding:15px 0; border-top:1px solid var(--line); align-items:start}
+.mass:first-of-type{border-top:none}
+.chip{width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:15px; border:1px solid rgba(0,0,0,.1); flex:none}
+.mass h4{margin:0 0 4px; font-size:16px}
+.mass p{margin:0; font-size:14.5px; color:var(--sub)}
+.mass .key{display:inline-block; margin-top:7px; font-size:12.5px; background:var(--card);
+  border:1px solid var(--line); border-radius:7px; padding:3px 9px; color:var(--ink)}
+
+/* ---------- timetable ---------- */
+.tt{width:100%; border-collapse:collapse; font-size:14.5px; margin:0 0 18px}
+.tt th,.tt td{text-align:left; padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+.tt th{width:5.6em; color:var(--sub); font-weight:600; white-space:nowrap; font-variant-numeric:tabular-nums}
+.tt tr.hi td,.tt tr.hi th{background:color-mix(in srgb,var(--c5) 22%,transparent)}
+.tt tr.hi td{font-weight:700}
+
+/* ---------- steps ---------- */
+ol.steps{list-style:none; counter-reset:s; padding:0; margin:0}
+ol.steps>li{counter-increment:s; position:relative; padding:0 0 24px 46px; border-left:2px solid var(--line); margin-left:15px}
+ol.steps>li:last-child{border-left-color:transparent; padding-bottom:0}
+ol.steps>li::before{content:counter(s); position:absolute; left:-16px; top:-2px; width:31px; height:31px;
+  background:var(--c6); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:14px; font-weight:800}
+ol.steps h4{margin:2px 0 7px; font-size:16.5px}
+ol.steps p{font-size:14.5px; color:var(--sub); margin:0 0 8px}
+ol.steps ul{margin:8px 0 0; padding-left:19px; font-size:14px; color:var(--sub)}
+ol.steps li li{margin-bottom:4px}
+kbd{font-family:inherit; font-size:.92em; background:var(--card); border:1px solid var(--line);
+  border-bottom-width:2px; border-radius:6px; padding:1.5px 7px; color:var(--ink); white-space:nowrap}
+
+/* ---------- cards ---------- */
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px}
+.card{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:18px}
+.card h4{margin:0 0 7px; font-size:15.5px}
+.card p{margin:0; font-size:14px; color:var(--sub)}
+
+/* ---------- faq ---------- */
+details{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:14px 17px; margin-bottom:9px}
+details[open]{border-color:var(--accent)}
+summary{cursor:pointer; font-weight:700; font-size:15px; list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"Q  "; color:var(--accent); font-weight:800}
+details p{margin:11px 0 0; font-size:14.5px; color:var(--sub)}
+
+footer{padding:38px 0 56px; font-size:13px; color:var(--sub)}
+footer p{margin:0 0 6px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#tool">ツール</a>
+  <a href="#flow">当日の流れ</a>
+  <a href="#sheet">8つのマス</a>
+  <a href="#kakikata">かきかた</a>
+  <a href="#setup">セットアップ</a>
+  <a href="#can">できること</a>
+  <a href="#faq">Q&amp;A</a>
+</div></nav>
+
+<header><div class="wrap">
+  <p class="eyebrow">文部科学省後援　令和8年度 学修デザイン研究会 全国大会</p>
+  <h1>学修デザインシート<br>ワークショップ 資料サイト
+    <span class="thin">午後WS 第1部：シートで授業を設計する／第2部：AIで指導案にする</span>
+  </h1>
+  <ul class="meta">
+    <li>2026年8月8日（土）10:00〜16:00</li>
+    <li>亀戸文化センター 5階 第1研修室</li>
+    <li>ファシリテーター：前多昌顕（ジョニー）</li>
+  </ul>
+  <div class="rainbow">
+    <i style="background:var(--c0);box-shadow:inset 0 0 0 1px var(--line)"></i>
+    <i style="background:var(--c1)"></i><i style="background:var(--c2)"></i>
+    <i style="background:var(--c3)"></i><i style="background:var(--c4)"></i>
+    <i style="background:var(--c5)"></i><i style="background:var(--c6)"></i>
+    <i style="background:var(--c7)"></i>
+  </div>
+</div></header>
+
+<!-- ============ ツール ============ -->
+<section id="tool"><div class="wrap">
+  <h2>まずはここから</h2>
+  <p class="lead">第2部で使う「学修デザインシート作成ツール」を、自分のGoogleドライブにコピーします。</p>
+
+  <div class="cta">
+    <div>
+      <h3>学修デザインシート作成ツール</h3>
+      <p>リンクを開いて「テンプレートを使用」を押すと、自分のドライブにコピーができます。<br>
+         コピーしたあとに、下の<a href="#setup">セットアップ手順</a>を1回だけ行ってください。</p>
+      <a class="btn" href="https://bit.ly/ldsheet" target="_blank" rel="noopener">シートをコピーする →</a>
+      <p class="url">https://bit.ly/ldsheet</p>
+    </div>
+    <div>
+      <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33"><path stroke="#111" d="M2 2.5h7m6 0h1m1 0h2m1 0h3m1 0h7m-29 1h1m5 0h1m1 0h2m9 0h2m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m2 0h3m1 0h2m4 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m3 0h2m1 0h1m1 0h2m3 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m2 0h1m2 0h4m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h1m1 0h6m1 0h1m1 0h1m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h2m2 0h2m1 0h1m-12 1h4m2 0h1m3 0h3m3 0h1m1 0h2m3 0h1m-28 1h1m2 0h1m1 0h1m1 0h5m1 0h3m1 0h4m1 0h4m1 0h2m-29 1h1m1 0h2m1 0h2m3 0h1m1 0h2m1 0h1m1 0h2m2 0h1m2 0h2m2 0h1m-29 1h3m4 0h2m1 0h1m2 0h1m1 0h2m3 0h2m1 0h1m3 0h2m-29 1h3m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m3 0h4m2 0h1m1 0h1m2 0h1m-28 1h2m1 0h2m2 0h1m1 0h1m1 0h1m1 0h2m6 0h1m1 0h1m1 0h3m-29 1h3m2 0h2m2 0h1m2 0h3m3 0h1m2 0h1m2 0h1m3 0h1m-29 1h1m1 0h2m1 0h1m3 0h1m1 0h1m6 0h2m1 0h3m1 0h1m1 0h2m-29 1h4m1 0h2m1 0h1m2 0h2m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m3 0h2m-29 1h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h2m2 0h2m3 0h3m3 0h1m-23 1h1m1 0h6m1 0h2m3 0h1m2 0h1m1 0h2m1 0h1m-26 1h1m3 0h1m4 0h1m7 0h1m4 0h1m1 0h1m-28 1h7m1 0h1m1 0h2m2 0h1m1 0h1m2 0h7m1 0h1m-20 1h1m1 0h4m3 0h1m1 0h2m3 0h1m1 0h1m1 0h1m-29 1h7m1 0h2m1 0h2m5 0h3m1 0h1m1 0h1m3 0h1m-29 1h1m5 0h1m1 0h2m1 0h2m1 0h1m2 0h4m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h3m3 0h11m2 0h2m-29 1h1m1 0h3m1 0h1m3 0h1m2 0h1m1 0h1m1 0h1m5 0h1m3 0h1m-28 1h1m1 0h3m1 0h1m3 0h1m4 0h1m1 0h5m5 0h2m-29 1h1m5 0h1m3 0h1m4 0h1m1 0h2m1 0h1m1 0h2m1 0h1m1 0h2m-29 1h7m3 0h3m1 0h1m2 0h1m2 0h2m2 0h2m1 0h1"/></svg></div>
+      <p class="qrcap">bit.ly/ldsheet</p>
+    </div>
+  </div>
+
+  <div class="note warn">
+    <strong>ノートPCで開いてください</strong>
+    <p>スマホでも閲覧はできますが、設計作業はPCのブラウザ（Chrome推奨）が快適です。学校支給のPCはセキュリティ制限でセットアップが通らないことがあるため、個人所有のPCをおすすめします。</p>
+  </div>
+
+  <div class="note">
+    <strong>Gemini APIキーを先に用意しておくとスムーズです</strong>
+    <p>AI機能を使うにはGoogle AI StudioのAPIキーが要ります。当日その場でも取れますが、事前に <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> で発行しておくと、第2部をまるごと制作時間に使えます。</p>
+  </div>
+</div></section>
+
+<!-- ============ 当日の流れ ============ -->
+<section id="flow"><div class="wrap">
+  <h2>当日の流れ</h2>
+  <p class="lead">午後のワークショップは2部構成です。第1部で手を動かして設計し、第2部でそれをAIに渡します。</p>
+
+  <table class="tt">
+    <tr><th>10:00</th><td>開会</td></tr>
+    <tr><th>10:15</th><td>神田昌典さん「問いの力」</td></tr>
+    <tr><th>10:30</th><td>中山芳一先生「非認知能力」（オンライン登壇・会場のスクリーンで視聴）</td></tr>
+    <tr><th>11:15</th><td>小仁聡さん「リフレクション」</td></tr>
+    <tr class="hi"><th>13:00</th><td>ワークショップ 第1部　学修デザインシートで授業を設計する</td></tr>
+    <tr><th>13:50</th><td>研究発表：AI活用実践</td></tr>
+    <tr class="hi"><th>15:00</th><td>ワークショップ 第2部　シート×AIで指導案を生成する</td></tr>
+    <tr><th>16:00</th><td>閉会（終了後、希望者で懇親会）</td></tr>
+  </table>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>第1部（13:00〜）設計する</h4>
+      <p>学修デザインシートの8つのマスを一周しながら、自分が2学期にやる授業を1枚に落とします。使うのは紙と付箋とペン。ここでは、まだAIは使いません。</p>
+    </div>
+    <div class="card">
+      <h4>第2部（15:00〜）加速する</h4>
+      <p>第1部で書いたシートを作成ツールに入力して、指導案・教材・ルーブリックを生成します。自分で考えたプロセスがあるから、AIの出力を評価できます。</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>持ち物</strong>
+    <p>ノートPC（個人所有のもの）／筆記用具／付箋（3色あると便利）。白紙のシートは会場で配布します。手元で印刷したい方は <a href="sheet.html">白紙シート（印刷用）</a> をどうぞ。</p>
+  </div>
+</div></section>
+
+<!-- ============ 8つのマス ============ -->
+<section id="sheet"><div class="wrap">
+  <h2>学修デザインシートの8つのマス</h2>
+  <p class="lead">ひとコマの授業を「一枚の地図」として組み立てるためのシートです。0番から7番へ、時計回りに一周します。</p>
+
+  <div class="sheet">
+    <div class="cell light-txt" style="background:var(--c6)"><span class="n">6</span><span class="t">継続</span><span class="d">授業のあとに続くこと</span></div>
+    <div class="cell light-txt" style="background:var(--c7)"><span class="n">7</span><span class="t">応用</span><span class="d">達成感を与える閉じの儀式</span></div>
+    <div class="cell dark-txt" style="background:var(--c0)"><span class="n">0</span><span class="t">準備</span><span class="d">教師が事前に持っている条件</span></div>
+    <div class="cell light-txt" style="background:var(--c1)"><span class="n">1</span><span class="t">期待</span><span class="d">始まる前につくる「やってみたい」</span></div>
+    <div class="cell dark-txt" style="background:var(--c5)"><span class="n">5</span><span class="t">確認</span><span class="d">学びを振り返り、意味づける</span></div>
+    <div class="cell dark-txt" style="background:var(--c4)"><span class="n">4</span><span class="t">反応</span><span class="d">Output｜学んだことを使う</span></div>
+    <div class="cell dark-txt" style="background:var(--c3)"><span class="n">3</span><span class="t">感知</span><span class="d">Input｜情報を受け取る</span></div>
+    <div class="cell dark-txt" style="background:var(--c2)"><span class="n">2</span><span class="t">解放</span><span class="d">安心・安全と、全体像の提示</span></div>
+  </div>
+  <p class="cycle"><b>0 準備</b> → 1 期待 → ↓ → 2 解放 → 3 感知 → 4 反応 → 5 確認 → ↑ → 6 継続 → 7 応用 → <b>0 へ戻る</b></p>
+
+  <p>このシートには <strong>アクセラメンツ（Accelements）</strong> という加速学習理論がバックボーンにあります。NLPとアクセラレイテッド・ラーニングを、教育現場で使える形に落とし込んだものです。中心にある考え方はひとつだけ。</p>
+
+  <div class="note">
+    <p>人は8段階の学修サイクルをたどって学ぶ。8段階を意図的に通すと、学びが定着する。途中を飛ばすと、頭ではわかったつもりでも、体には残らない。</p>
+  </div>
+
+  <h3>各マスの意味</h3>
+
+  <div class="mass"><div class="chip dark-txt" style="background:var(--c0)">0</div><div>
+    <h4>準備</h4>
+    <p>授業が始まる前に、教師の側が持っている情報と条件です。タイトル・ゴール・対象・時間・前提条件が基本セット。</p>
+    <span class="key">これを渡せば、他の人が同じ授業を再現できる</span>
+  </div></div>
+
+  <div class="mass"><div class="chip light-txt" style="background:var(--c1)">1</div><div>
+    <h4>期待</h4>
+    <p>始まる前に「楽しそう」「やってみたい」をつくる仕掛け。事前の予告、教室の掲示、机の配置、入ってきたときに目に入るもの。学習は席に着く前から始まっています。</p>
+    <span class="key">低学年なら、掲示や入口の実物が効く</span>
+  </div></div>
+
+  <div class="mass"><div class="chip dark-txt" style="background:var(--c2)">2</div><div>
+    <h4>解放</h4>
+    <p>体と頭を学習モードに切り替える時間。緊張をほぐし、今日の流れを示します。安心・安全の確保と、全体像の提示がセットです。</p>
+    <span class="key">Good &amp; New／流れの板書／軽い復習</span>
+  </div></div>
+
+  <div class="mass"><div class="chip dark-txt" style="background:var(--c3)">3</div><div>
+    <h4>感知（Input）</h4>
+    <p>学修者が情報を受け取る時間。視覚・聴覚・体感覚（VAK）のうち、できれば2つ以上が混ざる設計にします。</p>
+    <span class="key">2感覚以上を組み合わせる</span>
+  </div></div>
+
+  <div class="mass"><div class="chip dark-txt" style="background:var(--c4)">4</div><div>
+    <h4>反応（Output）</h4>
+    <p>学んだことを実際に使う時間。声に出す、書く、人に説明する、手を動かす。1つだとアウトプット不足で、感知したものが定着しないまま終わります。</p>
+    <span class="key">アウトプットの機会は3つ以上</span>
+  </div></div>
+
+  <div class="mass"><div class="chip dark-txt" style="background:var(--c5)">5</div><div>
+    <h4>確認</h4>
+    <p>学んだことを振り返り、自分の中で意味づける時間。大事なのは「いま自分は何を学んだのか」を言語化する機会があることです。</p>
+    <span class="key">個人 → グループ → 全体 の順で広げる</span>
+  </div></div>
+
+  <div class="mass"><div class="chip light-txt" style="background:var(--c6)">6</div><div>
+    <h4>継続</h4>
+    <p>授業が終わったあとも続く学び。家で何をするか、次の授業とどうつなぐか。欲張ると続きません。</p>
+    <span class="key">1〜2個だけ書く</span>
+  </div></div>
+
+  <div class="mass"><div class="chip light-txt" style="background:var(--c7)">7</div><div>
+    <h4>応用</h4>
+    <p>いちばん誤解されるマスです。「応用問題を出す枠」ではありません。<strong>達成感を与える閉じのセレモニー</strong>です。認定証、拍手、写真、スタンプ——形は何でもよくて、サイクルを締める装置を用意します。</p>
+    <span class="key">「学んだ」で終わらせず「やり遂げた」を体に残す</span>
+  </div></div>
+</div></section>
+
+<!-- ============ かきかた ============ -->
+<section id="kakikata"><div class="wrap">
+  <h2>かきかたのコツ</h2>
+  <p class="lead">最初の1枚は完璧でなくて構いません。埋まらないマスがあっても大丈夫です。</p>
+
+  <div class="grid2">
+    <div class="card"><h4>全部埋めなくていい</h4><p>最初は3〜4マスから始めるくらいでちょうどいいです。白紙を前に固まるより、書けるところから。</p></div>
+    <div class="card"><h4>付箋で書く</h4><p>直接書き込むと動かせません。付箋に1つずつ書いて貼れば、何度でも剥がして貼り直せます。</p></div>
+    <div class="card"><h4>3と4を分けて考える</h4><p>「説明する→問題を解かせる」で混ざりがちな Input と Output を、意図して分ける。これだけで組み立てが変わります。</p></div>
+    <div class="card"><h4>分けて、つなげる</h4><p>アクセラメンツの根っこにある発想です。段階を分けて意識し、そのうえで一周つなぐ。</p></div>
+  </div>
+
+  <h3>この90分そのものが、8マスでできています</h3>
+  <p>ワークショップの進み方は、シートの8マスと対応しています。あなたは「学修デザインシートを学ぶ」のではなく、「学修デザインシートに沿って学ぶ」ことになります。</p>
+  <table class="tt">
+    <tr><th style="width:11em">開講前の支度</th><td>0 準備</td></tr>
+    <tr><th>オープニング</th><td>1 期待</td></tr>
+    <tr><th>アイスブレイク</th><td>2 解放</td></tr>
+    <tr><th>レクチャー</th><td>3 感知（Input）</td></tr>
+    <tr><th>ハンズオン</th><td>4 反応（Output）</td></tr>
+    <tr><th>共有と振り返り</th><td>5 確認</td></tr>
+    <tr><th>持ち帰りの確認</th><td>6 継続</td></tr>
+    <tr><th>クロージング</th><td>7 応用</td></tr>
+  </table>
+</div></section>
+
+<!-- ============ セットアップ ============ -->
+<section id="setup"><div class="wrap">
+  <h2>ツールのセットアップ</h2>
+  <p class="lead">最初の1回だけ必要な作業です。5分ほどで終わります。</p>
+
+  <ol class="steps">
+    <li>
+      <h4>シートを自分のドライブにコピーする</h4>
+      <p><a href="https://bit.ly/ldsheet" target="_blank" rel="noopener">bit.ly/ldsheet</a> を開いて <kbd>テンプレートを使用</kbd> を押します。自分のドライブにコピーができます（プログラムも一緒にコピーされます）。</p>
+    </li>
+    <li>
+      <h4>Apps Script を開く</h4>
+      <p>コピーしたシートのメニューから <kbd>拡張機能</kbd> → <kbd>Apps Script</kbd>。コードはすでに入っているので、書く必要はありません。</p>
+    </li>
+    <li>
+      <h4>ウェブアプリとしてデプロイする</h4>
+      <p>右上の <kbd>デプロイ</kbd> → <kbd>新しいデプロイ</kbd> → 種類を <kbd>ウェブアプリ</kbd> に。</p>
+      <ul>
+        <li>実行するユーザー：<strong>自分</strong></li>
+        <li>アクセスできるユーザー：<strong>自分のみ</strong></li>
+      </ul>
+      <p>設定したら <kbd>デプロイ</kbd> を押します。</p>
+    </li>
+    <li>
+      <h4>アクセスを承認する（ここでつまずきます）</h4>
+      <p><kbd>アクセスを承認</kbd> を押すと、<strong>「Googleはこのアプリを検証していません」</strong> という警告が出ます。自分専用に自分でデプロイしたアプリなので、これは想定どおりの表示です。</p>
+      <ul>
+        <li>画面<strong>左下の小さな文字</strong>をクリック（表記は「詳細」「高度な」「Advanced」など、ブラウザの言語設定や翻訳の有無で変わります）</li>
+        <li>開いた <strong>「（アプリ名）に移動（安全ではないページ）」</strong> をクリック</li>
+        <li><kbd>許可</kbd> をクリック</li>
+      </ul>
+      <p><strong>「安全な場所へ戻る」を押すとやり直しになります。</strong>押さないでください。</p>
+    </li>
+    <li>
+      <h4>表示されたURLを開いて、APIキーを入れる</h4>
+      <p>デプロイ完了後に表示されるウェブアプリのURLを開きます。初回だけ「AI設定」が自動で開くので、<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a> で取得したGemini APIキーを貼って保存。以降は再入力不要です。</p>
+      <p>URLはブックマークしておくと、次から一発で開けます。</p>
+    </li>
+  </ol>
+
+  <div class="note warn">
+    <strong>APIキーで403エラーが出たら</strong>
+    <p>2026年7月ごろから、Google側で無料枠のプロジェクトが突然「denied access」になる事例が出ています。ツール側に日本語の案内を出すようにしてあります。別のGoogleアカウントで取り直したキーを登録すると通ることが多いです。当日つまずいたら会場で声をかけてください。</p>
+  </div>
+
+  <div class="note">
+    <strong>「サブスク課金」と「API課金」は別物です</strong>
+    <p>Google AI Pro などに課金していても、APIキーの利用枠は別枠です。逆に、無料枠のAPIキーでもこのツールは動きます。</p>
+  </div>
+</div></section>
+
+<!-- ============ できること ============ -->
+<section id="can"><div class="wrap">
+  <h2>ツールでできること</h2>
+  <p class="lead">第2部で触るのは、おもにこの4つです。</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>AIで8マスを生成・調整する</h4>
+      <p>タイトル・教科・学年を入れると、8マスの案が出ます。理論に沿ったプロンプト（3感知は2感覚以上、4反応は3つ以上、6継続は1〜2個、7応用はセレモニー…）を仕込んであるので、ただの当たり障りのない案にはなりません。</p>
+    </div>
+    <div class="card">
+      <h4>付箋モードで、自分の意図を先に置く</h4>
+      <p>上部の <kbd>アドバンスド（付箋）</kbd> に切り替えると、付箋トレイが出ます。「これは絶対やりたい」をマスにドラッグしておくと、AIはそれを最優先で活かした案を作ります。第1部で紙に貼った付箋を、そのまま持ち込むイメージです。</p>
+    </div>
+    <div class="card">
+      <h4>指導案をGoogleドキュメントで出す</h4>
+      <p><kbd>指導案を作成（Docs）</kbd> で、研究授業フォーマットの指導案が生成されます。2解放→導入（めあて）、3感知・4反応→展開、5確認→振り返り→まとめ→7応用のセレモニー、という対応で組み立てます。</p>
+    </div>
+    <div class="card">
+      <h4>他のAIに引き継ぐ（md）</h4>
+      <p>シートの内容と8マスの読み方、指導案化の依頼文をまとめたMarkdownをコピー／ダウンロードできます。ChatGPTでもClaudeでも、貼れば続きができます。ここだけはAPIキー不要です。</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ Q&A ============ -->
+<section id="faq"><div class="wrap">
+  <h2>よくある質問</h2>
+  <p class="lead">当日いちばん聞かれることを、先に置いておきます。</p>
+
+  <details><summary>全部のマスを埋めないとダメですか？</summary>
+    <p>埋めなくて大丈夫です。最初は3〜4マスから始めるくらいでちょうどいいです。</p></details>
+
+  <details><summary>「7 応用」って、応用問題のことですか？</summary>
+    <p>違います。達成感を与える閉じのセレモニーです。全員で拍手、スタンプ、写真、「次も楽しみだね」の一言。30秒で終わるものでいいので、サイクルを締める装置を置きます。</p></details>
+
+  <details><summary>子どもが小さくて「期待」が難しいです。</summary>
+    <p>小学校低学年なら、教室に貼る絵や、入口に置く実物が「期待」になります。事前情報よりも、その場の環境のほうが効くことが多いです。</p></details>
+
+  <details><summary>手書きとデジタル、どちらがいいですか？</summary>
+    <p>最初の1枚は紙をおすすめします。デジタル版がAIの案を出したときに、その良し悪しを自分で判断できる目を、先に作っておきたいからです。手書きは目的ではなく、判断力をつけるための入口です。</p></details>
+
+  <details><summary>学校のPCでも動きますか？</summary>
+    <p>動かない可能性が高いです。多くの自治体でApps Scriptのデプロイや外部APIの利用が制限されています。個人所有のPCを持ってきてください。</p></details>
+
+  <details><summary>APIキーは有料ですか？</summary>
+    <p>無料枠でも動きます。ただし無料枠は制限が厳しく、混み合うと止まることがあります。ツール側には、モデルを選び直したり、標準モデルに自動で切り替えたりする仕組みを入れてあります。</p></details>
+
+  <details><summary>当日にセットアップが間に合わなかったら？</summary>
+    <p>紙のシートだけでも第1部は完結します。第2部も、隣の方の画面を一緒に見る形で参加できます。あとから自分の環境で追体験できるように、このページは大会後も残しておきます。</p></details>
+</div></section>
+
+<!-- ============ 宿題 ============ -->
+<section id="homework"><div class="wrap">
+  <h2>持ち帰りの、ひとつだけの宿題</h2>
+  <div class="note">
+    <p><strong>1週間以内に、今日書いた学修デザインシートを使って、実際に1コマ授業をしてみてください。</strong></p>
+    <p>それだけで構いません。シートは使われて初めて意味を持ちます。机に置いたままだと、ただの紙です。</p>
+  </div>
+  <p style="margin-top:26px"><a class="btn ghost" href="sheet.html">白紙シートを印刷する（A4横）</a></p>
+</div></section>
+
+<footer><div class="wrap">
+  <div style="display:flex; gap:22px; align-items:center; flex-wrap:wrap; margin-bottom:26px">
+    <div>
+      <div class="qr" style="width:110px;height:110px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41"><path stroke="#111" d="M2 2.5h7m1 0h1m3 0h3m1 0h1m2 0h1m3 0h5m2 0h7m-37 1h1m5 0h1m2 0h2m5 0h1m3 0h3m1 0h1m1 0h2m2 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m3 0h1m1 0h2m2 0h3m1 0h1m1 0h2m6 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h2m1 0h2m2 0h1m1 0h3m2 0h1m2 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m6 0h4m1 0h1m2 0h1m3 0h4m1 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m2 0h1m4 0h1m3 0h3m4 0h1m1 0h2m1 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-28 1h2m1 0h4m3 0h1m1 0h1m3 0h1m2 0h1m-27 1h1m1 0h3m1 0h2m2 0h1m1 0h1m2 0h1m5 0h5m1 0h1m3 0h1m2 0h1m-37 1h3m4 0h1m1 0h2m1 0h2m1 0h1m3 0h1m1 0h1m8 0h2m1 0h1m2 0h1m-33 1h1m1 0h1m1 0h1m1 0h2m2 0h3m3 0h3m2 0h1m2 0h1m1 0h1m4 0h2m-37 1h1m1 0h1m1 0h2m1 0h3m2 0h2m1 0h3m3 0h3m1 0h3m1 0h1m3 0h1m-34 1h2m2 0h1m1 0h1m1 0h2m1 0h8m1 0h1m2 0h1m1 0h1m2 0h3m2 0h1m-32 1h4m2 0h1m1 0h1m1 0h2m2 0h1m1 0h2m1 0h2m1 0h2m2 0h1m1 0h1m2 0h4m-36 1h1m2 0h5m1 0h2m4 0h1m2 0h1m1 0h2m1 0h1m1 0h1m2 0h1m1 0h2m1 0h3m-37 1h3m6 0h1m1 0h1m1 0h1m7 0h1m1 0h5m7 0h1m-35 1h1m1 0h2m1 0h1m1 0h3m1 0h1m3 0h2m4 0h1m2 0h3m1 0h2m2 0h1m-33 1h2m4 0h1m2 0h1m3 0h2m3 0h3m1 0h2m3 0h3m3 0h3m-35 1h2m1 0h5m1 0h2m2 0h1m6 0h1m1 0h2m4 0h3m2 0h2m-35 1h4m1 0h1m2 0h2m1 0h4m2 0h4m2 0h8m2 0h2m-37 1h1m4 0h2m1 0h2m3 0h1m3 0h1m2 0h1m1 0h3m3 0h1m1 0h2m-32 1h3m10 0h1m1 0h1m1 0h3m2 0h3m4 0h2m5 0h1m-35 1h2m1 0h2m7 0h2m8 0h2m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m-37 1h2m1 0h2m2 0h1m1 0h1m4 0h2m1 0h2m1 0h2m3 0h2m2 0h1m-29 1h6m1 0h2m2 0h1m1 0h1m1 0h4m3 0h2m1 0h2m2 0h2m4 0h1m-35 1h4m1 0h1m2 0h1m1 0h2m5 0h3m1 0h2m5 0h2m1 0h1m1 0h2m-37 1h1m1 0h1m2 0h2m1 0h1m2 0h1m2 0h2m3 0h1m1 0h6m1 0h1m1 0h1m3 0h3m-36 1h2m2 0h1m2 0h2m2 0h2m1 0h2m1 0h1m1 0h3m1 0h2m1 0h1m2 0h2m1 0h1m2 0h1m-37 1h1m3 0h3m1 0h2m1 0h1m5 0h3m1 0h1m1 0h3m1 0h7m1 0h2m-29 1h1m2 0h1m5 0h1m1 0h6m2 0h2m3 0h1m2 0h2m-37 1h7m3 0h1m2 0h5m1 0h1m1 0h2m1 0h2m1 0h2m1 0h1m1 0h1m1 0h3m-37 1h1m5 0h1m1 0h2m3 0h5m5 0h3m2 0h1m3 0h1m3 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m4 0h1m2 0h2m2 0h6m1 0h1m-36 1h1m1 0h3m1 0h1m3 0h3m3 0h2m1 0h1m1 0h3m3 0h3m2 0h1m1 0h3m-37 1h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h2m1 0h1m2 0h1m2 0h1m1 0h1m1 0h2m3 0h1m-37 1h1m5 0h1m2 0h1m1 0h2m1 0h2m1 0h2m4 0h1m1 0h1m1 0h3m1 0h1m3 0h1m-36 1h7m2 0h2m2 0h1m1 0h2m2 0h1m4 0h1m2 0h4m2 0h1m1 0h2"/></svg></div>
+      <p class="qrcap">このページ</p>
+    </div>
+    <div style="flex:1; min-width:200px">
+      <p style="margin:0 0 6px; color:var(--ink); font-weight:700">このページのURL</p>
+      <p class="url" style="margin:0">https://johnnymaeta.github.io/LDA20260808/</p>
+      <p style="margin:8px 0 0">大会が終わったあとも残しておきます。校内で共有したいときは、このURLをどうぞ。</p>
+    </div>
+  </div>
+  <p>©学修デザイナー協会 フレームワーク準拠／構成：前多昌顕（ジョニー）</p>
+  <p>令和8年度 学修デザイン研究会 全国大会（2026年8月8日・亀戸文化センター）午後ワークショップ資料</p>
+</div></footer>
+
+</body>
+</html>
