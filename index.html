@@ -90,11 +90,13 @@ p{margin:0 0 15px}
 .cell .d{font-size:11.5px; line-height:1.6; opacity:.82}
 .dark-txt{color:#20242a} .light-txt{color:#fff}
 @media (max-width:560px){
+  /* 4×2の輪は2列では再現できないので、モバイルではサイクル順に並べ替える */
   .sheet{grid-template-columns:repeat(2,1fr)}
   .cell{min-height:92px}
+  .o0{order:0} .o1{order:1} .o2{order:2} .o3{order:3}
+  .o4{order:4} .o5{order:5} .o6{order:6} .o7{order:7}
 }
-.cycle{display:flex; align-items:center; justify-content:center; gap:9px; font-size:13px;
-  color:var(--sub); margin:0 0 18px; flex-wrap:wrap}
+.cycle{font-size:13px; color:var(--sub); margin:0 0 20px; text-align:center; line-height:2}
 .cycle b{color:var(--ink)}
 
 /* ---------- 各マス詳細 ---------- */
@@ -246,16 +248,17 @@ footer p{margin:0 0 6px}
   <p class="lead">ひとコマの授業を「一枚の地図」として組み立てるためのシートです。0番から7番へ、時計回りに一周します。</p>
 
   <div class="sheet">
-    <div class="cell light-txt" style="background:var(--c6)"><span class="n">6</span><span class="t">継続</span><span class="d">授業のあとに続くこと</span></div>
-    <div class="cell light-txt" style="background:var(--c7)"><span class="n">7</span><span class="t">応用</span><span class="d">達成感を与える閉じの儀式</span></div>
-    <div class="cell dark-txt" style="background:var(--c0)"><span class="n">0</span><span class="t">準備</span><span class="d">教師が事前に持っている条件</span></div>
-    <div class="cell light-txt" style="background:var(--c1)"><span class="n">1</span><span class="t">期待</span><span class="d">始まる前につくる「やってみたい」</span></div>
-    <div class="cell dark-txt" style="background:var(--c5)"><span class="n">5</span><span class="t">確認</span><span class="d">学びを振り返り、意味づける</span></div>
-    <div class="cell dark-txt" style="background:var(--c4)"><span class="n">4</span><span class="t">反応</span><span class="d">Output｜学んだことを使う</span></div>
-    <div class="cell dark-txt" style="background:var(--c3)"><span class="n">3</span><span class="t">感知</span><span class="d">Input｜情報を受け取る</span></div>
-    <div class="cell dark-txt" style="background:var(--c2)"><span class="n">2</span><span class="t">解放</span><span class="d">安心・安全と、全体像の提示</span></div>
+    <div class="cell light-txt o6" style="background:var(--c6)"><span class="n">6</span><span class="t">継続</span><span class="d">授業のあとに続くこと</span></div>
+    <div class="cell light-txt o7" style="background:var(--c7)"><span class="n">7</span><span class="t">応用</span><span class="d">達成感を与える閉じの儀式</span></div>
+    <div class="cell dark-txt o0" style="background:var(--c0)"><span class="n">0</span><span class="t">準備</span><span class="d">教師が事前に持っている条件</span></div>
+    <div class="cell light-txt o1" style="background:var(--c1)"><span class="n">1</span><span class="t">期待</span><span class="d">始まる前につくる「やってみたい」</span></div>
+    <div class="cell dark-txt o5" style="background:var(--c5)"><span class="n">5</span><span class="t">確認</span><span class="d">学びを振り返り、意味づける</span></div>
+    <div class="cell dark-txt o4" style="background:var(--c4)"><span class="n">4</span><span class="t">反応</span><span class="d">Output｜学んだことを使う</span></div>
+    <div class="cell dark-txt o3" style="background:var(--c3)"><span class="n">3</span><span class="t">感知</span><span class="d">Input｜情報を受け取る</span></div>
+    <div class="cell dark-txt o2" style="background:var(--c2)"><span class="n">2</span><span class="t">解放</span><span class="d">安心・安全と、全体像の提示</span></div>
   </div>
-  <p class="cycle"><b>0 準備</b> → 1 期待 → ↓ → 2 解放 → 3 感知 → 4 反応 → 5 確認 → ↑ → 6 継続 → 7 応用 → <b>0 へ戻る</b></p>
+  <p class="cycle"><b>0 準備 → 1 期待 → 2 解放 → 3 感知 → 4 反応 → 5 確認 → 6 継続 → 7 応用 → 0 へ戻る</b><br>
+  上の段を左から右へ、右の辺を下りて、下の段を右から左へ、左の辺を上る。時計回りに一周します。</p>
 
   <p>このシートには <strong>アクセラメンツ（Accelements）</strong> という加速学習理論がバックボーンにあります。NLPとアクセラレイテッド・ラーニングを、教育現場で使える形に落とし込んだものです。中心にある考え方はひとつだけ。</p>
 
