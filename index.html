@@ -78,7 +78,7 @@ p{margin:0 0 15px}
 .note{border-left:4px solid var(--c2); background:var(--card); border-radius:0 11px 11px 0;
   padding:15px 18px; margin:20px 0; font-size:14.5px}
 .note.warn{border-left-color:var(--c1)}
-.note strong{display:block; margin-bottom:4px}
+.note>strong:first-child{display:block; margin-bottom:4px}  /* 見出しだけブロック。本文中の強調はインラインのまま */
 .note p:last-child{margin-bottom:0}
 
 /* ---------- 8マス ---------- */
@@ -137,6 +137,20 @@ kbd{font-family:inherit; font-size:.92em; background:var(--card); border:1px sol
 .card h4{margin:0 0 7px; font-size:15.5px}
 .card p{margin:0; font-size:14px; color:var(--sub)}
 
+/* ---------- downloads ---------- */
+.dl{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin-bottom:8px}
+.dl a{display:flex; gap:13px; align-items:flex-start; background:var(--card); border:1px solid var(--line);
+  border-radius:12px; padding:15px 16px; text-decoration:none; color:inherit; transition:.15s}
+.dl a:hover{border-color:var(--accent); transform:translateY(-1px); box-shadow:var(--shadow)}
+.dl .ic{flex:none; width:34px; height:42px; border-radius:4px; border:1.5px solid var(--sub); position:relative;
+  display:flex; align-items:flex-end; justify-content:center; padding-bottom:4px; font-size:8.5px;
+  font-weight:800; letter-spacing:.06em; color:var(--sub)}
+.dl .ic::after{content:"PDF"}
+.dl b{display:block; font-size:14.5px; margin-bottom:3px}
+.dl span{display:block; font-size:12.5px; color:var(--sub); line-height:1.65}
+.dl em{font-style:normal; color:var(--c1); font-weight:700}
+@media (prefers-color-scheme: dark){ .dl em{color:#ff7a99} }
+
 /* ---------- faq ---------- */
 details{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:14px 17px; margin-bottom:9px}
 details[open]{border-color:var(--accent)}
@@ -155,6 +169,7 @@ footer p{margin:0 0 6px}
   <a href="#tool">ツール</a>
   <a href="#flow">当日の流れ</a>
   <a href="#sheet">8つのマス</a>
+  <a href="#dl">配布資料</a>
   <a href="#kakikata">かきかた</a>
   <a href="#setup">セットアップ</a>
   <a href="#can">できること</a>
@@ -239,7 +254,7 @@ footer p{margin:0 0 6px}
 
   <div class="note">
     <strong>持ち物</strong>
-    <p>ノートPC（個人所有のもの）／筆記用具／付箋（3色あると便利）。白紙のシートは会場で配布します。手元で印刷したい方は <a href="sheet.html">白紙シート（印刷用）</a> をどうぞ。</p>
+    <p>ノートPC（個人所有のもの）／筆記用具／付箋（3色あると便利）。白紙のシートは会場で配布します。手元で印刷したい方は <a href="#dl">配布資料（PDF）</a> か <a href="sheet.html">ブラウザから印刷できる白紙シート</a> をどうぞ。</p>
   </div>
 </div></section>
 
@@ -316,6 +331,50 @@ footer p{margin:0 0 6px}
     <p>いちばん誤解されるマスです。「応用問題を出す枠」ではありません。<strong>達成感を与える閉じのセレモニー</strong>です。認定証、拍手、写真、スタンプ——形は何でもよくて、サイクルを締める装置を用意します。</p>
     <span class="key">「学んだ」で終わらせず「やり遂げた」を体に残す</span>
   </div></div>
+</div></section>
+
+<!-- ============ 配布資料 ============ -->
+<section id="dl"><div class="wrap">
+  <h2>配布資料（PDF）</h2>
+  <p class="lead">学修デザイナー協会の公式資料です。印刷して使ってください。</p>
+
+  <div class="dl">
+    <a href="pdf/sheet-blank-cw.pdf" download="学修デザインシート_白紙_右回り.pdf"><span class="ic"></span><span>
+      <b>学修デザインシート（白紙）</b>
+      <span>右回り版。A3かA4横で印刷して、付箋を貼って使います。<em>7は「達成」表記</em></span></span></a>
+
+    <a href="pdf/sheet-guide-cw.pdf" download="学修デザインシート_各マスの説明_右回り.pdf"><span class="ic"></span><span>
+      <b>各マスの説明</b>
+      <span>8つのマスに何を書くかの一覧。右回り版。<em>7は「達成」表記</em></span></span></a>
+
+    <a href="pdf/sheet-colors-cw.pdf" download="学修デザインシート_公式色_右回り.pdf"><span class="ic"></span><span>
+      <b>公式の色（和色コード）</b>
+      <span>自分でシートを作り直すとき用。右回り・「7 応用」表記で、いまのシートと同じです。</span></span></a>
+
+    <a href="pdf/sheet-guide-191203.pdf" download="学修デザインシート_説明版_7応用.pdf"><span class="ic"></span><span>
+      <b>各マスの説明（「7 応用」版）</b>
+      <span>7を「応用＝達成感を与える仕掛け／セレモニー・認定証・シール」と書いてある版。<em>配置は左回り</em></span></span></a>
+
+    <a href="pdf/leaflet-howto.pdf" download="学修デザインシートの使い方_リーフレット.pdf"><span class="ic"></span><span>
+      <b>シートの使い方（リーフレット）</b>
+      <span>付箋で書いていく4ステップの図解。第1部でやることそのものです。<em>色と配置は旧デザイン</em></span></span></a>
+
+    <a href="pdf/sheet-kids.pdf" download="子供学修デザインシート_説明用.pdf"><span class="ic"></span><span>
+      <b>子供学修デザインシート</b>
+      <span>子どもが自分の学びを設計するための版。「わ〜ぉ！」「へぇ〜！」など、マス名が子ども向けの言葉になっています。</span></span></a>
+  </div>
+
+  <div class="note warn">
+    <strong>7番のマスの表記がゆれています</strong>
+    <p>資料によって、7番が<strong>「達成」</strong>だったり<strong>「応用」</strong>だったりします。配置も、右回り（時計回り）と左回りの両方が出回っています。</p>
+    <p>今回のワークショップでは、<strong>右回り・「7 応用」</strong>で統一します。意味は<strong>「達成感を与える閉じのセレモニー」</strong>です。応用問題を出す枠ではありません。「達成」と書いてある資料も、中身は同じことを指しています（＝セレモニー・認定証・シール）。</p>
+    <p>色は、上の「公式の色（和色コード）」が正です。リーフレットだけ古いデザインの色使いなので、色は参考にしないでください。</p>
+  </div>
+
+  <div class="note">
+    <strong>このサイトの白紙シートについて</strong>
+    <p><a href="sheet.html">ブラウザから印刷できる白紙シート</a>も置いてあります。こちらは右回り・「7 応用」で、各マスに書きかたのヒント（3感知は2感覚以上、4反応は3つ以上…）を小さく入れてあります。プリンタさえあれば、その場で刷れます。</p>
+  </div>
 </div></section>
 
 <!-- ============ かきかた ============ -->
