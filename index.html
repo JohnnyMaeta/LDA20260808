@@ -95,6 +95,7 @@ p{margin:0 0 15px}
   .cell{min-height:92px}
   .o0{order:0} .o1{order:1} .o2{order:2} .o3{order:3}
   .o4{order:4} .o5{order:5} .o6{order:6} .o7{order:7}
+  .cycle .layout{display:none}  /* 4×2の配置説明はモバイルでは意味を持たないので隠す */
 }
 .cycle{font-size:13px; color:var(--sub); margin:0 0 20px; text-align:center; line-height:2}
 .cycle b{color:var(--ink)}
@@ -257,8 +258,8 @@ footer p{margin:0 0 6px}
     <div class="cell dark-txt o3" style="background:var(--c3)"><span class="n">3</span><span class="t">感知</span><span class="d">Input｜情報を受け取る</span></div>
     <div class="cell dark-txt o2" style="background:var(--c2)"><span class="n">2</span><span class="t">解放</span><span class="d">安心・安全と、全体像の提示</span></div>
   </div>
-  <p class="cycle"><b>0 準備 → 1 期待 → 2 解放 → 3 感知 → 4 反応 → 5 確認 → 6 継続 → 7 応用 → 0 へ戻る</b><br>
-  上の段を左から右へ、右の辺を下りて、下の段を右から左へ、左の辺を上る。時計回りに一周します。</p>
+  <p class="cycle"><b>0 準備 → 1 期待 → 2 解放 → 3 感知 → 4 反応 → 5 確認 → 6 継続 → 7 応用 → 0 へ戻る</b>
+  <span class="layout"><br>上の段を左から右へ、右の辺を下りて、下の段を右から左へ、左の辺を上る。時計回りに一周します。</span></p>
 
   <p>このシートには <strong>アクセラメンツ（Accelements）</strong> という加速学習理論がバックボーンにあります。NLPとアクセラレイテッド・ラーニングを、教育現場で使える形に落とし込んだものです。中心にある考え方はひとつだけ。</p>
 
