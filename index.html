@@ -175,12 +175,17 @@ footer p{margin:0 0 6px}
 .partband .pttl{font-size:17px; font-weight:700}
 .partband .ptime{font-size:13px; color:var(--sub)}
 .partband.p2 .pno{background:var(--c7)}
+.embed{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff;
+  box-shadow:var(--shadow); height:min(72vh,760px); min-height:400px}
+.embed iframe{width:100%; height:100%; border:0; display:block}
+@media (max-width:640px){ .embed{height:62vh; min-height:340px} }
 </style>
 </head>
 <body>
 
 <nav><div class="wrap">
   <a href="#flow">当日の流れ</a>
+  <a href="#summary">まとめ</a>
   <a href="#sheet">8つのマス</a>
   <a href="#dl">配布資料</a>
   <a href="#kakikata">かきかた</a>
@@ -255,6 +260,23 @@ footer p{margin:0 0 6px}
     <strong>持ち物</strong>
     <p>ノートPC（個人所有のもの）／筆記用具／付箋（3色あると便利）。白紙のシートは会場で配布します。手元で印刷したい方は <a href="#dl">配布資料（PDF）</a> か <a href="sheet.html">ブラウザから印刷できる白紙シート</a> をどうぞ。<strong>筆記用具や付箋を持ってきていない方は、<a href="#dl">Googleスライド版</a>でPCの画面の上で設計できます。</strong></p>
     <p style="margin-bottom:0">第2部で使うツールのコピーとGemini APIキーの準備は <a href="#tool">第2部で使うツール</a> に置いてあります。手が空いたときに先に済ませておくと、当日まるごと制作時間に使えます。</p>
+  </div>
+</div></section>
+
+<!-- ============ 今日のまとめ ============ -->
+<section id="summary"><div class="wrap">
+  <h2>今日のまとめ（リアルタイム更新）</h2>
+  <p class="lead">講座で話していることを、その場で要約してGoogleドキュメントに書き込んでいます。ページを読み込み直すと最新になります。メモを取るのが追いつかなくても大丈夫です。中身が空のときは、まだ講座が始まっていないだけです。</p>
+
+  <div class="embed">
+    <iframe src="https://docs.google.com/document/d/1PY3mHRuD1uR3Jxed-DFUewYfK3aZRoODi1eIhQ7CC1k/preview" loading="lazy" title="学修デザインシート要約（リアルタイム）"></iframe>
+  </div>
+
+  <p style="margin-top:16px"><a class="btn ghost" href="https://docs.google.com/document/d/1PY3mHRuD1uR3Jxed-DFUewYfK3aZRoODi1eIhQ7CC1k/preview" target="_blank" rel="noopener">別のタブで大きく開く →</a></p>
+
+  <div class="note">
+    <strong>スマホで見るときは</strong>
+    <p>枠の中でも読めますが、上のボタンから別のタブで開いたほうが読みやすいです。大会が終わったあともこのページに残しておきます。</p>
   </div>
 </div></section>
 
