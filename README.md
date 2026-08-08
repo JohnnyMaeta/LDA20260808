@@ -30,6 +30,7 @@ CSSとQRコード（SVG）はHTMLに直接埋め込んである。外部CDNへ�
 | ファイル | 内容 |
 |---|---|
 | `reflection-koni.pdf` | 小仁聡さん「経験を学びに変えるリフレクション」v1.2（42ページ）。©LEARNING SHIFT Inc. 登壇者からの提供資料 |
+| `ai-shikae.pdf` | 鹿江宏明理事長「「学びを楽しむ」世界をめざして」（9ページ・AI活用の実践）。理事長からの提供資料 |
 
 **掲載しなかったもの**: `アクセラメンツの学び（事前配布資料）` `プレイブック` `20の学習戦略` `chapter1-8` `part2-part8` `accelementspart1` は
 ©Learning Strategies Corporation（Paul R. Scheele）の翻訳教材で、協会の著作物ではないため除外した。
