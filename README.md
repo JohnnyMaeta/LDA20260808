@@ -26,6 +26,12 @@ CSSとQRコード（SVG）はHTMLに直接埋め込んである。外部CDNへ�
 | `leaflet-howto.pdf` | 学修デザインシートリーフレットA4仕上がり | 左回り | 達成（旧デザインの色） |
 | `sheet-kids.pdf` | 200301 子供学修デザインシート 説明用 | 左回り | よぉ〜し！ |
 
+### 登壇者の提供資料
+
+| ファイル | 内容 |
+|---|---|
+| `reflection-koni.pdf` | 小仁聡さん「経験を学びに変えるリフレクション」v1.2（42ページ）。©LEARNING SHIFT Inc. 登壇者からの提供資料 |
+
 **掲載しなかったもの**: `アクセラメンツの学び（事前配布資料）` `プレイブック` `20の学習戦略` `chapter1-8` `part2-part8` `accelementspart1` は
 ©Learning Strategies Corporation（Paul R. Scheele）の翻訳教材で、協会の著作物ではないため除外した。
 
